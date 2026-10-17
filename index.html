@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betoneta | Más rutas, menos límites</title>
+    <style>
+        @keyframes resaltar-encabezado {
+
+            0%,
+            35% {
+                background-color: #ffe08a;
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
+        #rutas>h2.resaltar {
+            animation: resaltar-encabezado 1.5s ease-out;
+        }
+
+        .logo-betoneta {
+            display: block;
+            width: 120px;
+            height: auto;
+            margin: 0 auto 12px;
+        }
+
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #243746;
+            background-color: #f5f7f5;
+        }
+
+        header {
+            padding: 24px 20px;
+            text-align: center;
+            background-color: #ffffff;
+            border-bottom: 3px solid #f4c430;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            color: #294b63;
+            font-size: 2.2rem;
+        }
+
+        .aviso-demo {
+            max-width: 760px;
+            margin: 12px auto;
+            padding: 10px 14px;
+            border-left: 4px solid #e2b72e;
+            background-color: #fff8df;
+            font-size: 0.9rem;
+        }
+
+        nav {
+            margin-top: 16px;
+        }
+
+        a {
+            color: #176b70;
+        }
+
+        a:hover {
+            color: #104c50;
+        }
+
+        main {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+            padding: 28px 0 48px;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        h2 {
+            color: #294b63;
+            line-height: 1.25;
+        }
+
+        .catalogo-rutas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+            margin-top: 24px;
+        }
+
+        .tarjeta-ruta {
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #dce4e3;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 6%);
+        }
+
+        .imagen-ruta {
+            display: block;
+            width: 100%;
+            height: 190px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .tarjeta-ruta h3 {
+            margin-top: 0;
+            color: #176b70;
+        }
+
+        .tarjeta-ruta button {
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 6px;
+            color: #ffffff;
+            background-color: #294b63;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .tarjeta-ruta button:hover {
+            background-color: #176b70;
+        }
+
+        .tarjeta-ruta button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #e2b72e;
+            outline-offset: 3px;
+        }
+
+        .detalles-ruta {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid #dce4e3;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px 14px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            main {
+                width: 90%;
+                padding-top: 20px;
+            }
+
+            .catalogo-rutas {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="images/logo-betoneta.png" alt="Logo de Betoneta" class="logo-betoneta">
+        <h1>Betoneta</h1>
+
+        <p class="aviso-demo">
+            Proyecto en desarrollo. Las rutas son demostrativas y no representan
+            servicios operativos confirmados ni reservas garantizadas.
+        </p>
+        <p>Más rutas, menos límites.</p>
+        <nav>
+            <a href="https://es.wikiloc.com/rutas/mountain-bike/colombia/tolima/ibague" target="_blank"
+                rel="noopener noreferrer">Ver rutas</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h2>Tu próxima aventura empieza aquí</h2>
+
+            <p>
+                Descubre las rutas de Ibagué mientras Betoneta
+                te lleva junto con tu bicicleta hasta el punto
+                de partida y te recoge al finalizar tu recorrido.
+            </p>
+
+            <a href="#rutas">Explorar experiencias</a>
+        </section>
+        <section id="rutas">
+            <h2>Explora nuestras rutas</h2>
+
+            <p>
+                Encuentra tu próxima aventura sobre dos ruedas.
+                Estas rutas son experiencias de demostración.
+            </p>
+
+            <div class="catalogo-rutas">
+                <article class="tarjeta-ruta">
+                    <h3>Cañón del Combeima</h3>
+                    <img class="imagen-ruta" src="images/betoneta-ciclismo.png"
+                        alt="Ilustración de ciclistas y una mototaxi de apoyo en un paisaje montañoso genérico; no es una fotografía del Cañón del Combeima."
+                        loading="lazy">
+                    <p>
+                        Un recorrido de montaña entre paisajes
+                        andinos y caminos rurales.
+                    </p>
+                    <p>Distancia de referencia: 30–36 km</p>
+                    <p>Duración total: Por determinar</p>
+                    <button type="button">Ver detalles</button>
+                    <div class="detalles-ruta" hidden>
+                        <h4>Detalles de la ruta</h4>
+                        <p>Identificador de prueba: COMBEIMA-01</p>
+                        <p>Desnivel positivo: 1500 m aproximadamente</p>
+                        <p>Dificultad: Alta</p>
+                        <p>Servicio: transporte hasta el inicio y recogida al finalizar.</p>
+                    </div>
+                </article>
+
+                <article class="tarjeta-ruta">
+                    <h3>Las Amarillas</h3>
+                    <img class="imagen-ruta" src="images/betoneta-foto-01.jpeg"
+                        alt="Mototaxi de Betoneta estacionada junto a una vía urbana; imagen del vehículo, no de la ruta Las Amarillas."
+                        loading="lazy">
+                    <p>
+                        Un ascenso exigente para ciclistas
+                        que disfrutan los grandes retos.
+                    </p>
+                    <p>Distancia de referencia: 4,5 km de ascenso</p>
+                    <p>Duración total: Por determinar</p>
+                    <button type="button">Ver detalles</button>
+                    <div class="detalles-ruta" hidden>
+                        <h4>Detalles de la ruta</h4>
+                        <p>Identificador de prueba: LAS-AMARILLAS-01</p>
+                        <p>Distancia: 4,5 km de ascenso</p>
+                        <p>Desnivel positivo: 600 m aproximadamente</p>
+                        <p>Dificultad: Muy alta</p>
+                        <p>Servicio: transporte hasta el inicio y recogida al finalizar.</p>
+                    </div>
+                </article>
+
+                <article class="tarjeta-ruta">
+                    <h3>Chucuní – Alvarado</h3>
+                    <img class="imagen-ruta" src="images/betoneta-foto-02.jpeg"
+                        alt="Mototaxi de Betoneta estacionada junto a una vía; imagen del vehículo, no de la ruta Chucuní–Alvarado."
+                        loading="lazy">
+                    <p>
+                        Una alternativa de recorrido más rodador
+                        por los paisajes rurales del Tolima.
+                    </p>
+                    <p>Distancia de referencia: 68 km</p>
+                    <p>Duración total: Por determinar</p>
+                    <button type="button">Ver detalles</button>
+                    <div class="detalles-ruta" hidden>
+                        <h4>Detalles de la ruta</h4>
+                        <p>Identificador de prueba: CHUCUNI-ALVARADO-01</p>
+                        <p>Distancia: 68 km aproximadamente</p>
+                        <p>Desnivel positivo: 678 m aproximadamente</p>
+                        <p>Dificultad: Moderada, pendiente de verificación</p>
+                        <p>Servicio: transporte hasta el inicio y recogida al finalizar.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const tarjetas = document.querySelectorAll('.tarjeta-ruta');
+
+        tarjetas.forEach(function (tarjeta) {
+            const boton = tarjeta.querySelector('button');
+            const detalles = tarjeta.querySelector('.detalles-ruta');
+
+            boton.addEventListener('click', function () {
+                const estabaAbierto = !detalles.hidden;
+
+                tarjetas.forEach(function (otraTarjeta) {
+                    const otrosDetalles = otraTarjeta.querySelector('.detalles-ruta');
+
+                    if (otrosDetalles) {
+                        otrosDetalles.hidden = true;
+                    }
+                });
+
+                if (!estabaAbierto) {
+                    detalles.hidden = false;
+                }
+            });
+        });
+
+        const enlaceExperiencias = document.querySelector(
+            'a[href="#rutas"]'
+        );
+
+        const encabezadoRutas = document.querySelector(
+            '#rutas > h2'
+        );
+
+        enlaceExperiencias.addEventListener('click', function () {
+            encabezadoRutas.classList.remove('resaltar');
+
+            void encabezadoRutas.offsetWidth;
+
+            encabezadoRutas.classList.add('resaltar');
+        });
+
+        encabezadoRutas.addEventListener('animationend', function () {
+            encabezadoRutas.classList.remove('resaltar');
+        });
+    </script>
+
+</body>
+
+</html>
