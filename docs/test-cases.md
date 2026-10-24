@@ -28,9 +28,9 @@ Git tags such as `v0.1.0` may be used to identify product versions in future tes
 **Manual status:** Pass  
 **Manual evidence:** Manual observation; no screenshot recorded.
 
-**Automation status:** Planned  
+**Automation status:** Automated  
 **Last automated result:** Not Run  
-**Automation reference:** N/A  
+**Automation reference:** `tests/betoneta.spec.ts`  
 **Last tested version:** N/A
 
 ---
@@ -51,10 +51,10 @@ Git tags such as `v0.1.0` may be used to identify product versions in future tes
 **Manual status:** Pass  
 **Manual evidence:** Manual browser observation; no screenshot recorded.
 
-**Automation status:** Planned  
-**Last automated result:** Not Run  
-**Automation reference:** N/A  
-**Last tested version:** N/A
+**Automation status:** Automated  
+**Last automated result:** Pass (12/12 tests; TC-002 ran in Chromium, Firefox, and WebKit)  
+**Automation reference:** `tests/betoneta.spec.ts` (TC-002; Chromium, Firefox, WebKit)  
+**Last tested version:** N/A (not recorded)
 
 ---
 
@@ -74,10 +74,10 @@ Git tags such as `v0.1.0` may be used to identify product versions in future tes
 **Manual status:** Pass  
 **Manual evidence:** Manual observation; no screenshot recorded.
 
-**Automation status:** Not Planned  
-**Last automated result:** Not Run  
-**Automation reference:** N/A  
-**Last tested version:** N/A
+**Automation status:** Automated  
+**Last automated result:** Pass (3/3 tests; TC-003 ran in Chromium, Firefox, and WebKit)  
+**Automation reference:** `tests/betoneta.spec.ts` (TC-003; Chromium, Firefox, WebKit)  
+**Last tested version:** N/A (not recorded)
 
 ---
 
@@ -142,10 +142,10 @@ Git tags such as `v0.1.0` may be used to identify product versions in future tes
 **Manual status:** Pass  
 **Manual evidence:** Manual browser observation; no screenshot recorded.
 
-**Automation status:** Not Planned  
-**Last automated result:** Not Run  
-**Automation reference:** N/A  
-**Last tested version:** N/A
+**Automation status:** Automated  
+**Last automated result:** Pass (3/3 tests; TC-006 ran in Chromium, Firefox, and WebKit)  
+**Automation reference:** `tests/betoneta.spec.ts` (TC-006; Chromium, Firefox, WebKit)  
+**Last tested version:** N/A (not recorded)
 
 ---
 
@@ -341,8 +341,10 @@ Git tags such as `v0.1.0` may be used to identify product versions in future tes
 
 ## 5. Review Notes
 
-- TC-001 and TC-002 were marked “Not executed” in their original individual case sections, while the execution record documented them as Pass. This document retains the recorded Pass results in the manual fields; the discrepancy in the earlier case entries is noted because its cause cannot be verified from the available records.
-- TC-002 and TC-012 both cover navigation to the route catalog and the heading highlight. TC-012 additionally records refresh and repeat-navigation behavior. Their scope overlap is retained for traceability.
-- No automated result is attributed to any test case. The available Playwright project files and run metadata do not establish implementation or execution coverage for these cases.
+- TC-002 has a recorded manual Pass and passed in the latest reported Playwright run (12/12 tests) across Chromium, Firefox, and WebKit. The tested product version was not recorded.
+- TC-002 automation verifies navigation to `#rutas` and visibility of the catalog heading in Chromium, Firefox, and WebKit. It does not verify the temporary heading highlight; that behavior and refresh/repeat-navigation behavior remain documented as manual observations in TC-012.
+- TC-001 through TC-006 have Playwright implementations in `tests/betoneta.spec.ts`. TC-002, TC-003, TC-004, and TC-006 have recorded passing runs across Chromium, Firefox, and WebKit. No automated result is recorded here for TC-001 or TC-005. TC-007 through TC-013 have no confirmed Playwright implementation or execution coverage.
+- TC-003 verifies the name, short description, reference distance, and total experience duration for each of the three route cards, including the “Por determinar” label. It passed in Chromium, Firefox, and WebKit (3/3). Product version was not recorded for this run.
+- TC-006 verifies that opening Las Amarillas after Cañón del Combeima closes Combeima and leaves Las Amarillas open. It passed in Chromium, Firefox, and WebKit (3/3). Product version was not recorded for this run.
 - Historical manual runs have no recorded product version. The package version is not used as a substitute, and no Git tag or product release was verified for those runs.
 - No screenshots were recorded for the manual observations listed above.

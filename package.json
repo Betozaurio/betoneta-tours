@@ -5,7 +5,10 @@
   "directories": {
     "doc": "docs"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "order-66": "playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
