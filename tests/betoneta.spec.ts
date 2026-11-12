@@ -225,3 +225,97 @@ test('TC-007: Display the correct route details', async ({ page }) => {
         await expect(detalles).toBeHidden();
     }
 });
+
+test('TC-008: Communicate the project development status', async ({ page }) => {
+    await page.goto('/');
+
+    const avisoDemo = page.locator('.aviso-demo');
+
+    await expect(
+        page.getByRole('heading', { name: 'Betoneta', level: 1 }),
+    ).toBeVisible();
+    await expect(avisoDemo).toBeVisible();
+    await expect(avisoDemo).toContainText(
+        'Proyecto en desarrollo. Las rutas son demostrativas y no representan servicios operativos confirmados ni reservas garantizadas.',
+    );
+
+    await page.getByRole('link', { name: 'Explorar experiencias' }).click();
+
+    await expect(page).toHaveURL(/#rutas$/);
+    await expect(
+        page.getByRole('heading', {
+            name: 'Explora nuestras rutas',
+            level: 2,
+        }),
+    ).toBeVisible();
+    await expect(avisoDemo).toBeVisible();
+    await expect(
+        page.getByText(
+            'Estas rutas son experiencias de demostración.',
+            { exact: false },
+        ),
+    ).toBeVisible();
+});
+
+test('TC-009: Responsive layout', async ({ page }) => {
+    const viewports = [
+        { name: 'desktop', width: 1365, height: 900 },
+        { name: 'mobile', width: 390, height: 844 },
+    ];
+
+    for (const viewport of viewports) {
+        await page.setViewportSize({
+            width: viewport.width,
+            height: viewport.height,
+        });
+        await page.goto('/');
+
+        await expect(
+            page.getByRole('heading', { name: 'Betoneta', level: 1 }),
+        ).toBeVisible();
+
+        const homeHasNoHorizontalOverflow = await page.evaluate(
+            () => document.documentElement.scrollWidth <= window.innerWidth,
+        );
+        expect(homeHasNoHorizontalOverflow, `${viewport.name} homepage overflow`).toBe(true);
+
+        await page.getByRole('link', { name: 'Explorar experiencias' }).click();
+        await expect(page).toHaveURL(/#rutas$/);
+        await expect(
+            page.getByRole('heading', { name: 'Explora nuestras rutas', level: 2 }),
+        ).toBeVisible();
+
+        const catalogHasNoHorizontalOverflow = await page.evaluate(
+            () => document.documentElement.scrollWidth <= window.innerWidth,
+        );
+        expect(catalogHasNoHorizontalOverflow, `${viewport.name} catalog overflow`).toBe(true);
+
+        const cards = page.locator('.tarjeta-ruta');
+        await expect(cards).toHaveCount(3);
+
+        const cardBounds = await cards.evaluateAll((elements) =>
+            elements.map((element) => {
+                const rect = element.getBoundingClientRect();
+                return { left: rect.left, right: rect.right, width: rect.width };
+            }),
+        );
+        for (const bounds of cardBounds) {
+            expect(bounds.width, `${viewport.name} route card width`).toBeGreaterThan(200);
+            expect(bounds.left, `${viewport.name} route card left edge`).toBeGreaterThanOrEqual(0);
+            expect(bounds.right, `${viewport.name} route card right edge`).toBeLessThanOrEqual(viewport.width);
+        }
+
+        for (const card of await cards.all()) {
+            await expect(card.locator('h3')).toBeVisible();
+            await expect(card.locator('p').first()).toBeVisible();
+
+            const detailsButton = card.getByRole('button', { name: 'Ver detalles' });
+            await expect(detailsButton).toBeVisible();
+            await detailsButton.click();
+            await expect(card.locator('.detalles-ruta')).toBeVisible();
+            await expect(page.locator('.detalles-ruta:visible')).toHaveCount(1);
+        }
+    }
+})
+
+test(
