@@ -213,10 +213,10 @@ Git tags such as `v0.1.0` may be used to identify product versions in future tes
 **Manual status:** Pass  
 **Manual evidence:** Manual browser observation; no screenshot recorded.
 
-**Automation status:** Not Planned  
-**Last automated result:** Not Run  
-**Automation reference:** N/A  
-**Last tested version:** N/A
+**Automation status:** Automated  
+**Last automated result:** Pass — Playwright Chromium, desktop 1365×900 and mobile 390×844; no horizontal overflow, route cards and controls usable.  
+**Automation reference:** `tests/betoneta.spec.ts` (TC-009; Chromium).  
+**Last tested version:** Working tree on 2026-11-04 (not tagged).
 
 ---
 
@@ -349,7 +349,7 @@ Git tags such as `v0.1.0` may be used to identify product versions in future tes
 
 - TC-002 has a recorded manual Pass and passed in the latest reported Playwright run (12/12 tests) across Chromium, Firefox, and WebKit. The tested product version was not recorded.
 - TC-002 automation verifies navigation to `#rutas` and visibility of the catalog heading in Chromium, Firefox, and WebKit. It does not verify the temporary heading highlight; that behavior and refresh/repeat-navigation behavior remain documented as manual observations in TC-012.
-- TC-001 through TC-006 have Playwright implementations in `tests/betoneta.spec.ts`. TC-002, TC-003, TC-004, and TC-006 have recorded passing runs across Chromium, Firefox, and WebKit. No automated result is recorded here for TC-001 or TC-005. TC-007 through TC-013 have no confirmed Playwright implementation or execution coverage.
+- TC-001 through TC-006 have Playwright implementations in `tests/betoneta.spec.ts`. TC-002, TC-003, TC-004, and TC-006 have recorded passing runs across Chromium, Firefox, and WebKit. No automated result is recorded here for TC-001 or TC-005. TC-009 is automated in `tests/betoneta.spec.ts` and passed in Chromium at desktop 1365×900 and mobile 390×844 on 2026-11-04. TC-007, TC-008, and TC-010 through TC-013 have no confirmed Playwright implementation or execution coverage.
 - TC-003 verifies the name, short description, reference distance, and total experience duration for each of the three route cards, including the “Por determinar” label. It passed in Chromium, Firefox, and WebKit (3/3). Product version was not recorded for this run.
 - TC-006 verifies that opening Las Amarillas after Cañón del Combeima closes Combeima and leaves Las Amarillas open. It passed in Chromium, Firefox, and WebKit (3/3). Product version was not recorded for this run.
 - Historical manual runs have no recorded product version. The package version is not used as a substitute, and no Git tag or product release was verified for those runs.

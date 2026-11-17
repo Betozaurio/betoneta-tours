@@ -95,6 +95,8 @@ npx playwright test tests/betoneta.spec.ts --project=chromium --grep "TC-007"
 
 The GitHub Actions workflow installs dependencies and browsers, runs npx playwright test, and uploads the HTML report as an artifact. A configured workflow does not by itself indicate a successful run.
 
+
+
 ### Current project status and planned next steps
 
 This is an evolving learning and portfolio project. The route catalog and detail interactions are implemented in the static page; requirements, manual cases, and automation are being developed alongside it.
