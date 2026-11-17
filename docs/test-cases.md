@@ -261,10 +261,13 @@ Git tags such as `v0.1.0` may be used to identify product versions in future tes
 **Manual status:** Pass  
 **Manual evidence:** Manual browser observation; no screenshot recorded.
 
-**Automation status:** Not Planned  
-**Last automated result:** Not Run  
-**Automation reference:** N/A  
-**Last tested version:** N/A
+**Automation status:** Automated  
+**Last automated result:** Passed — 1 passed (649ms).  
+**Last execution date:** 2026-11-17  
+**Browser:** Chromium  
+**Execution result:** 1 passed (649ms)  
+**Automation reference:** `tests/betoneta.spec.ts` (TC-011).  
+**Last tested version:** Working tree on 2026-11-17 (not tagged).
 
 ---
 
